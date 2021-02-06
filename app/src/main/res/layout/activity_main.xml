@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/centerGuidline">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="IMDB"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/imdbChooser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/support_simple_spinner_dropdown_item" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/moviesCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Movies"
+                android:layout_marginEnd="12dp"/>
+
+            <CheckBox
+                android:id="@+id/tvCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="TV Shows" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonSpin"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Spin" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/centerGuidline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <ProgressBar
+        android:id="@+id/movieLoader"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/centerGuidline"
+        tools:visibility="visible"/>
+    
+    <LinearLayout
+        android:id="@+id/movieInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/centerGuidline"
+        tools:visibility="visible">
+        
+        <ImageView
+            android:id="@+id/moviePoster"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="8dp"
+            tools:src="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/movieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="20sp"
+                tools:text="Movie title"/>
+
+            <TextView
+                android:id="@+id/movieRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                tools:text="7.5 IMDB"/>
+
+            <TextView
+                android:id="@+id/movieYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                tools:text="2020"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
